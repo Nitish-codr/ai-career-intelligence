@@ -13,7 +13,7 @@ if uploaded_file:
     with st.spinner("Reading resume..."):
         resume_text = read_resume_text(uploaded_file)
 
-    st.subheader("📄 Extracted Resume Text")
+    st.subheader("Extracted Resume Text")
     st.text_area("Resume Content", resume_text, height=200)
 
     if st.button("🔍 Analyze My Career"):
@@ -29,21 +29,21 @@ if uploaded_file:
             st.subheader("📈 Job Market Intelligence")
             st.write(results["job_market"])
 
-            st.subheader("🧠 Learning Recommendations")
+            st.subheader("Learning Recommendations")
             st.write(results["learning"])
 
-            st.subheader("⚖️ Ethics & Fairness Check")
+            st.subheader("Ethics & Fairness Check")
             st.write(results["ethics"])
 
         with col2:
-            st.subheader("🧩 Skill Gap Analysis")
+            st.subheader("Skill Gap Analysis")
             st.write(results["skill_gap"])
 
-            st.subheader("📄 Resume Feedback")
+            st.subheader("Resume Feedback")
             st.write(results["resume"])
 
-            st.subheader("📊 Employability Score")
+            st.subheader("Employability Score")
             st.metric("Score", f'{results["score"]}/100')
 
-        st.subheader("📉 Skill Gap Visualization")
+        st.subheader("Skill Gap Visualization")
         st.pyplot(results["chart"])

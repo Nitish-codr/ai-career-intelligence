@@ -1,12 +1,12 @@
-import os
 from groq import Groq
+from config import GROQ_API_KEY, GROQ_MODEL
 from dotenv import load_dotenv
 
 load_dotenv()
 
 class JobMarketAgent:
     def __init__(self):
-        self.client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+        self.client = Groq(api_key=GROQ_API_KEY)
 
     def analyze(self, resume_text: str):
         prompt = f"""
@@ -19,7 +19,7 @@ class JobMarketAgent:
         {resume_text}
         """
         response = self.client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
+            model=GROQ_MODEL,
 
             messages=[{"role": "user", "content": prompt}],
         )

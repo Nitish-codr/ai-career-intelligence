@@ -1,12 +1,12 @@
 from groq import Groq
-from config import GROQ_API_KEY, GROQ_MODEL
+from config import GROQ_MODEL, get_groq_api_key
 from dotenv import load_dotenv
 
 load_dotenv()
 
 class SkillGapAgent:
     def __init__(self):
-        self.client = Groq(api_key=GROQ_API_KEY)
+        self.client = Groq(api_key=get_groq_api_key())
 
     def analyze(self, resume_text: str):
         prompt = f"""
